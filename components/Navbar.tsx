@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
@@ -16,15 +17,21 @@ const Navbar = () => {
             />
             <p>DoEvents</p>
           </Link>
-          <ul>
+          <ul className="list-none">
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/" className={styles.navLink}>
+                Home
+              </Link>
             </li>
             <li>
-              <Link href="/events">Events</Link>
+              <Link href="/events" className={styles.navLink}>
+                Events
+              </Link>
             </li>
             <li>
-              <Link href="/dashboard">Create Events</Link>
+              <Link href="/about" className={styles.navLink}>
+                About
+              </Link>
             </li>
           </ul>
         </nav>
