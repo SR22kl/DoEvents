@@ -11,8 +11,8 @@ const Navbar = () => {
             <Image
               src="/icons/logo.png"
               alt="logo"
-              width={24}
-              height={24}
+              width={40}
+              height={40}
               className="w-auto h-auto"
             />
             <p>DoEvents</p>
