@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { unstable_noStore as noStore } from "next/cache";
 import { notFound } from "next/navigation";
 import BookEvent from "@/components/BookEvent";
 import { getSimilarEventsBySlug } from "@/lib/actions/event.action";
@@ -60,14 +61,13 @@ const EventsDetailsPage = async ({
 }: {
   params: Promise<{ slug: string }>;
 }) => {
+  noStore();
   const { slug } = await params;
 
   let event;
 
   try {
-    const request = await fetch(`${BASE_URL}/api/events/${slug}`, {
-      cache: "no-store",
-    });
+    const request = await fetch(`${BASE_URL}/api/events/${slug}`);
 
     if (!request.ok) {
       if (request.status === 404) {
