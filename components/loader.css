@@ -8,23 +8,6 @@
   overflow: hidden;
 }
 
-/* Animated background gradient */
-@keyframes gradientShift {
-  0% {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  }
-  50% {
-    background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
-  }
-  100% {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  }
-}
-
-.loader-container {
-  animation: gradientShift 8s ease infinite;
-}
-
 /* Main loader wrapper */
 .loader-wrapper {
   position: relative;
