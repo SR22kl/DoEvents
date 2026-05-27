@@ -3,7 +3,7 @@ import ExploreBtn from "@/components/ExploreBtn";
 import { IEvent } from "@/database";
 // import { events } from "@/lib/constants";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const Home = async () => {
   const response = await fetch(`${BASE_URL}/api/events`, {
