@@ -4,7 +4,6 @@ import BookEvent from "@/components/BookEvent";
 import { getSimilarEventsBySlug } from "@/lib/actions/event.action";
 import { IEvent } from "@/database";
 import EventCard from "@/components/EventCard";
-import { cacheLife } from "next/cache";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -61,16 +60,13 @@ const EventsDetailsPage = async ({
 }: {
   params: Promise<{ slug: string }>;
 }) => {
-  "use cache";
-  cacheLife("hours");
-
   const { slug } = await params;
 
   let event;
 
   try {
     const request = await fetch(`${BASE_URL}/api/events/${slug}`, {
-      next: { revalidate: 60 },
+      cache: "no-store",
     });
 
     if (!request.ok) {
